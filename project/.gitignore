@@ -1,0 +1,14 @@
+# Local Python environments and generated files
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+db.sqlite3
+db.sqlite3-journal
+.env
+*.log
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

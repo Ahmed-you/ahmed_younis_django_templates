@@ -1,0 +1,96 @@
+:root {
+    color-scheme: light;
+    --ink: #192d3f;
+    --muted: #61717d;
+    --blue: #234d77;
+    --line: #e5e9ec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f3f4f1;
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.page-shell { width: min(1050px, calc(100% - 64px)); margin: 0 auto; }
+.site-header, .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.site-header { padding: 36px 0; }
+.brand { font-size: 20px; font-weight: 700; letter-spacing: -0.6px; }
+.brand-dot { color: #24726a; }
+.course-tag { color: var(--muted); font-size: 12px; letter-spacing: 1.5px; font-weight: 600; }
+
+.profile-card {
+    display: grid;
+    grid-template-columns: 0.9fr 1.2fr;
+    margin: 35px 0 0;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 55px rgba(25, 45, 63, 0.05);
+}
+
+.profile-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 38px;
+    background: #e7eef4;
+    border-right: 1px solid #dde6ed;
+}
+
+.intro-top { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.eyebrow { color: #526674; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; }
+.student-badge { padding: 4px 12px; color: #325a67; border: 1px solid #bdcfd9; border-radius: 20px; font-size: 11px; }
+.avatar {
+    width: 98px;
+    height: 98px;
+    display: grid;
+    place-items: center;
+    margin: 55px 0 22px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 35px;
+    letter-spacing: -2px;
+}
+
+.greeting { margin: 0 0 2px; color: #526674; font-size: 16px; }
+h1 { margin: 0; font-size: clamp(30px, 3.5vw, 39px); line-height: 1.18; font-weight: 650; letter-spacing: -1.3px; overflow-wrap: anywhere; }
+.intro-description { margin: 16px 0 32px; font-size: 14px; color: #526674; }
+.intro-location { margin-top: auto; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; }
+.location-dot { width: 7px; height: 7px; border-radius: 50%; background: #347b6d; }
+
+.profile-details { padding: 40px 44px 30px; min-width: 0; }
+h2 { margin: 6px 0 28px; font-size: 25px; font-weight: 650; line-height: 1.3; letter-spacing: -0.7px; }
+.details-list { margin: 0; }
+.detail-row { display: grid; grid-template-columns: 126px minmax(0, 1fr); gap: 16px; padding: 19px 0; border-top: 1px solid var(--line); }
+dt { color: var(--muted); font-size: 13px; }
+dd { margin: 0; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+.student-id { font-variant-numeric: tabular-nums; letter-spacing: 0.6px; }
+.elapsed-time { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: 400; }
+.site-footer { padding: 25px 2px 36px; color: var(--muted); font-size: 11px; }
+
+@media (max-width: 740px) {
+    .page-shell { width: min(520px, calc(100% - 32px)); }
+    .site-header { padding: 24px 0; }
+    .profile-card { grid-template-columns: 1fr; margin-top: 12px; border-radius: 20px; }
+    .profile-intro { padding: 28px; border-right: 0; border-bottom: 1px solid #dde6ed; }
+    .avatar { width: 76px; height: 76px; margin: 28px 0 16px; font-size: 28px; }
+    .intro-description { margin-bottom: 22px; }
+    .profile-details { padding: 28px; }
+    .detail-row { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
+    .site-footer { flex-direction: column; align-items: flex-start; gap: 3px; }
+}
+
+@media (max-width: 380px) {
+    .profile-intro, .profile-details { padding: 22px; }
+    .detail-row { grid-template-columns: 1fr; gap: 4px; }
+    .course-tag { font-size: 10px; }
+}

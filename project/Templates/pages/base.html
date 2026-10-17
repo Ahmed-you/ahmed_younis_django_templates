@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student profile{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <span class="brand">Student profile<span class="brand-dot">.</span></span>
+            <span class="course-tag">WEBC 4301</span>
+        </header>
+        <main id="main-content">
+            {% block content %}{% endblock %}
+        </main>
+        {% include 'pages/footer.html' %}
+    </div>
+</body>
+</html>
