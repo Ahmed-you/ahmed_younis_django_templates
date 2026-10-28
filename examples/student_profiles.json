@@ -1,0 +1,15 @@
+[
+{
+  "model": "pages.studentprofile",
+  "pk": 1,
+  "fields": {
+    "full_name": "Ahmed Wael Younis",
+    "university_id": "120230395",
+    "age": 22,
+    "date_of_birth": "2004-06-12",
+    "address": "Gaza",
+    "salary": "1500.00",
+    "photo": "profiles/profile-avatar.png"
+  }
+}
+]

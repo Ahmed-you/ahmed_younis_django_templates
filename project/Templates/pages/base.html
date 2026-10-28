@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Student profile{% endblock %}</title>
+    <title>{% block title %}Home Page | Student Profile{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'pages/style.css' %}">
 </head>
 <body>
     <div class="page-shell">
         <header class="site-header">
-            <span class="brand">Student profile<span class="brand-dot">.</span></span>
-            <span class="course-tag">WEBC 4301</span>
+            <a class="brand" href="{% url 'pages:home' %}"><span class="brand-mark">S</span> Student Profile</a>
+            <nav aria-label="Main navigation">
+                <a class="nav-active" href="{% url 'pages:home' %}" aria-current="page">Home Page</a>
+                <a href="{% url 'admin:pages_studentprofile_changelist' %}">Admin <span aria-hidden="true">&nearr;</span></a>
+            </nav>
         </header>
         <main id="main-content">
             {% block content %}{% endblock %}

@@ -1,0 +1,3 @@
+Migrations for 'pages':
+  project\pages\migrations\0001_initial.py
+    + Create model StudentProfile

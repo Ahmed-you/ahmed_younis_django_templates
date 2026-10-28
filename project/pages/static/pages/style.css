@@ -1,96 +1,65 @@
-:root {
-    color-scheme: light;
-    --ink: #192d3f;
-    --muted: #61717d;
-    --blue: #234d77;
-    --line: #e5e9ec;
-}
-
+:root { color-scheme: light; --ink: #203b36; --muted: #6c7a73; --green: #245a47; --paper: #f6f5ef; }
 * { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    background: #f3f4f1;
-    color: var(--ink);
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px 'Segoe UI', sans-serif; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #be843b; outline-offset: 5px; }
+.page-shell { width: min(1120px, calc(100% - 64px)); margin: auto; }
+.site-header { height: 104px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #dcded5; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 19px; letter-spacing: -.6px; }
+.brand-mark { display: grid; place-items: center; width: 35px; height: 35px; background: var(--green); border-radius: 11px; color: white; font-size: 21px; }
+nav { display: flex; align-items: center; gap: 34px; font-size: 13px; font-weight: 600; }
+nav a { padding: 10px 0; color: var(--muted); }
+nav .nav-active { color: var(--green); border-bottom: 2px solid var(--green); }
+nav a span { margin-left: 8px; }
+.page-heading { padding: 42px 0 30px; }
+.eyebrow { margin: 0; font-size: 10px; font-weight: 700; letter-spacing: 2.2px; }
+.page-heading .eyebrow { color: var(--green); }
+h1 { margin: 8px 0 10px; font-size: 42px; line-height: 1.2; letter-spacing: -1.8px; }
+h1 span { color: #b78c4c; }
+.page-heading > p:last-child { margin: 0; color: var(--muted); }
+.profile-card { display: grid; grid-template-columns: 36% 64%; background: #fff; border: 1px solid #e0e3d8; border-radius: 22px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 12px 36px #233a2e06; }
+.profile-intro { display: flex; align-items: center; flex-direction: column; padding: 30px 34px; color: #f9fbf3; background: #245642; text-align: center; }
+.student-badge { display: flex; gap: 8px; align-items: center; font-size: 9px; letter-spacing: 1.8px; color: #d4e3d3; }
+.student-badge > span { width: 6px; height: 6px; border-radius: 100%; background: #d6b36e; }
+.profile-photo, .avatar-fallback { width: 174px; height: 174px; object-fit: cover; border-radius: 100%; margin: 26px 0 24px; border: 6px solid #ffffff1a; }
+.avatar-fallback { display: grid; place-items: center; font-size: 60px; background: #8a9c74; }
+.greeting { margin: 0 0 7px; color: #c8d8c7; font-size: 13px; }
+.profile-intro h2 { font-size: 29px; line-height: 1.25; letter-spacing: -.8px; margin: 0; max-width: 280px; }
+.intro-description { font-size: 13px; color: #c8d8c7; margin: 12px 0 27px; }
+.identity-tag { border-top: 1px solid #ffffff26; padding-top: 20px; width: 100%; font-size: 8px; letter-spacing: 1.7px; color: #c8d8c7; }
+.identity-tag strong { display: block; margin-top: 9px; font-size: 16px; letter-spacing: 2px; color: white; }
+.profile-details { padding: 37px 42px 32px; }
+.section-heading .eyebrow { color: #7c8b70; font-size: 9px; }
+.section-heading h3 { font-size: 25px; letter-spacing: -.7px; margin: 9px 0 7px; }
+.section-heading > p:last-child { font-size: 13px; color: var(--muted); margin: 0; }
+.details-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 27px 0 21px; column-gap: 28px; }
+.details-grid > div { padding: 0 0 18px; margin-bottom: 18px; border-bottom: 1px solid #edf0e8; min-width: 0; }
+dt { font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+dd { margin: 0; font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+.numeric { letter-spacing: .7px; }
+.unit { font-size: 12px; font-weight: 400; color: var(--muted); }
+.details-grid .address-row { grid-column: 1 / -1; margin-bottom: 0; padding-bottom: 15px; }
+.salary-panel { display: flex; align-items: center; justify-content: space-between; background: #f1f4e9; padding: 18px 22px; border-radius: 13px; }
+.salary-panel .eyebrow { color: #607b57; font-size: 8px; letter-spacing: 1.6px; }
+.salary-panel p { font-size: 29px; font-weight: 700; letter-spacing: -1px; margin: 7px 0 0; }
+.currency { font-size: 20px; margin-right: 3px; }
+.salary-panel .unit { letter-spacing: 0; margin-left: 5px; }
+.salary-note { font-size: 10px; color: #68815d; border: 1px solid #d8e2c9; border-radius: 20px; padding: 7px 12px; }
+.site-footer { display: flex; justify-content: space-between; border-top: 1px solid #dcded5; padding: 22px 0 25px; font-size: 10px; color: #819080; }
+.empty-state { background: white; border: 1px solid #e0e3d8; border-radius: 22px; padding: 55px; margin-bottom: 30px; }
+.empty-state p { color: var(--muted); }
+.button { display: inline-block; background: var(--green); color: white; padding: 13px 18px; border-radius: 8px; margin-top: 15px; }
+@media (max-width: 760px) {
+    .page-shell { width: calc(100% - 32px); }
+    .site-header { height: 85px; }
+    .brand { font-size: 15px; gap: 8px; }
+    nav { gap: 17px; font-size: 11px; }
+    .profile-card { grid-template-columns: 1fr; }
+    .profile-intro { padding: 30px; }
+    .profile-intro h2 { max-width: none; }
+    .profile-details { padding: 30px 24px; }
+    .page-heading { padding-top: 30px; }
+    h1 { font-size: 36px; }
+    .site-footer { gap: 16px; font-size: 9px; }
 }
-
-.page-shell { width: min(1050px, calc(100% - 64px)); margin: 0 auto; }
-.site-header, .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.site-header { padding: 36px 0; }
-.brand { font-size: 20px; font-weight: 700; letter-spacing: -0.6px; }
-.brand-dot { color: #24726a; }
-.course-tag { color: var(--muted); font-size: 12px; letter-spacing: 1.5px; font-weight: 600; }
-
-.profile-card {
-    display: grid;
-    grid-template-columns: 0.9fr 1.2fr;
-    margin: 35px 0 0;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 18px 55px rgba(25, 45, 63, 0.05);
-}
-
-.profile-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 38px;
-    background: #e7eef4;
-    border-right: 1px solid #dde6ed;
-}
-
-.intro-top { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.eyebrow { color: #526674; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; }
-.student-badge { padding: 4px 12px; color: #325a67; border: 1px solid #bdcfd9; border-radius: 20px; font-size: 11px; }
-.avatar {
-    width: 98px;
-    height: 98px;
-    display: grid;
-    place-items: center;
-    margin: 55px 0 22px;
-    border-radius: 50%;
-    background: var(--blue);
-    color: white;
-    font-family: Georgia, serif;
-    font-size: 35px;
-    letter-spacing: -2px;
-}
-
-.greeting { margin: 0 0 2px; color: #526674; font-size: 16px; }
-h1 { margin: 0; font-size: clamp(30px, 3.5vw, 39px); line-height: 1.18; font-weight: 650; letter-spacing: -1.3px; overflow-wrap: anywhere; }
-.intro-description { margin: 16px 0 32px; font-size: 14px; color: #526674; }
-.intro-location { margin-top: auto; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; }
-.location-dot { width: 7px; height: 7px; border-radius: 50%; background: #347b6d; }
-
-.profile-details { padding: 40px 44px 30px; min-width: 0; }
-h2 { margin: 6px 0 28px; font-size: 25px; font-weight: 650; line-height: 1.3; letter-spacing: -0.7px; }
-.details-list { margin: 0; }
-.detail-row { display: grid; grid-template-columns: 126px minmax(0, 1fr); gap: 16px; padding: 19px 0; border-top: 1px solid var(--line); }
-dt { color: var(--muted); font-size: 13px; }
-dd { margin: 0; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
-.student-id { font-variant-numeric: tabular-nums; letter-spacing: 0.6px; }
-.elapsed-time { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: 400; }
-.site-footer { padding: 25px 2px 36px; color: var(--muted); font-size: 11px; }
-
-@media (max-width: 740px) {
-    .page-shell { width: min(520px, calc(100% - 32px)); }
-    .site-header { padding: 24px 0; }
-    .profile-card { grid-template-columns: 1fr; margin-top: 12px; border-radius: 20px; }
-    .profile-intro { padding: 28px; border-right: 0; border-bottom: 1px solid #dde6ed; }
-    .avatar { width: 76px; height: 76px; margin: 28px 0 16px; font-size: 28px; }
-    .intro-description { margin-bottom: 22px; }
-    .profile-details { padding: 28px; }
-    .detail-row { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
-    .site-footer { flex-direction: column; align-items: flex-start; gap: 3px; }
-}
-
-@media (max-width: 380px) {
-    .profile-intro, .profile-details { padding: 22px; }
-    .detail-row { grid-template-columns: 1fr; gap: 4px; }
-    .course-tag { font-size: 10px; }
-}
+@media (max-width: 380px) { .details-grid { grid-template-columns: 1fr; } .salary-panel { padding: 16px; } }

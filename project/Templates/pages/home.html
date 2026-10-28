@@ -1,0 +1,48 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">THE STUDENT DIRECTORY</p>
+    <h1>Home Page<span>.</span></h1>
+    <p>A little introduction, all in one place.</p>
+</section>
+{% for profile in profiles %}
+<article class="profile-card" aria-labelledby="profile-name-{{ profile.pk }}">
+    <section class="profile-intro">
+        <span class="student-badge"><span aria-hidden="true"></span> STUDENT PROFILE</span>
+        {% if profile.photo %}
+        <img class="profile-photo" src="{{ profile.photo.url }}" alt="Profile image for {{ profile.full_name }}" width="240" height="240">
+        {% else %}
+        <div class="avatar-fallback" aria-label="No profile image">{{ profile.full_name|first }}</div>
+        {% endif %}
+        <p class="greeting">Hello, I'm</p>
+        <h2 id="profile-name-{{ profile.pk }}">{{ profile.full_name }}</h2>
+        <p class="intro-description">Student &middot; {{ profile.address }}</p>
+        <div class="identity-tag">UNIVERSITY ID <strong>{{ profile.university_id }}</strong></div>
+    </section>
+    <section class="profile-details" aria-labelledby="details-title-{{ profile.pk }}">
+        <div class="section-heading">
+            <p class="eyebrow">GET TO KNOW ME</p>
+            <h3 id="details-title-{{ profile.pk }}">Personal information</h3>
+            <p>The details behind the introduction.</p>
+        </div>
+        <dl class="details-grid">
+            <div><dt>Full name</dt><dd>{{ profile.full_name }}</dd></div>
+            <div><dt>University ID number</dt><dd class="numeric">{{ profile.university_id }}</dd></div>
+            <div><dt>Age</dt><dd>{{ profile.age }} <span class="unit">years</span></dd></div>
+            <div><dt>Date of birth</dt><dd><time datetime="{{ profile.date_of_birth|date:'Y-m-d' }}">{{ profile.date_of_birth|date:"j F Y" }}</time></dd></div>
+            <div class="address-row"><dt>Address</dt><dd>{{ profile.address|linebreaksbr }}</dd></div>
+        </dl>
+        <div class="salary-panel">
+            <div><span class="eyebrow">MONTHLY SALARY</span><p><span class="currency">$</span>{{ profile.salary|floatformat:"2g" }} <span class="unit">USD</span></p></div>
+            <span class="salary-note">Per month</span>
+        </div>
+    </section>
+</article>
+{% empty %}
+<section class="empty-state">
+    <h2>Your directory starts here.</h2>
+    <p>Add a student profile in the admin page to display it here.</p>
+    <a class="button" href="{% url 'admin:pages_studentprofile_add' %}">Add a student profile &rarr;</a>
+</section>
+{% endfor %}
+{% endblock %}
